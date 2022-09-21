@@ -33,6 +33,7 @@ const typeDefs = gql`
     id: ID!
     name: String
     type: String
+    foo: String
   }
 
   type User {
