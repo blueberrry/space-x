@@ -17,8 +17,9 @@ const server = new ApolloServer({
   // * all of our resolvers can access the details for the logged-in user and perform
   // * actions specifically for that user.
   context: async ({ req }) => {
-    // * simple auth check on every request (for every GraphQL operation that clients send to our server
+    // * simple auth check on every request (for every GraphQL operation that clients send to our server)
     // * this is _not secure_ but priciples demonstrated below could be used with a secure token-based authentication method
+    // TODO: See if you can replace with real world secure authentication method
     const auth = (req.headers && req.headers.authorization) || '';
     const email = Buffer.from(auth, 'base64').toString('ascii');
 
@@ -30,6 +31,7 @@ const server = new ApolloServer({
     const user = (users && users[0]) || null;
 
     // * The return function becomesthe context argument that's passed to every resolver
+    // TODO: where is dataValues coming from?
     return { user: { ...user.dataValues } };
   },
   typeDefs,

@@ -20,6 +20,29 @@ const { gql } = require('apollo-server');
 // A fields type can either be an object type or scalar type. You can also define custom scalar types
 // [Array]! - array cannot be null but can be empty
 
+const typeDefsStarTrekShips = gql`
+  type StarShip {
+    id: ID!
+    make: String!
+    model: model
+    url: String!
+    image(size: ImageSize): String
+  }
+
+  enum ImageSize {
+    SMALL
+    MEDIUM
+    LARGE
+    XL
+  }
+
+  type TVSeason {
+    id: ID!
+    name: String!
+    year: String
+  }
+`;
+
 const typeDefs = gql`
   type Launch {
     id: ID!
