@@ -75,7 +75,7 @@ module.exports = {
   Launch: {
     isBooked: async (launch, __, { dataSources }) => {
       // * Determines whether the logged-in user has booked a trip on a particular launch, returns true/false
-      dataSources.userAPI.isBookedOnLaunch({ launchId: launch.id });
+      return dataSources.userAPI.isBookedOnLaunch({ launchId: launch.id });
     },
   },
   User: {
